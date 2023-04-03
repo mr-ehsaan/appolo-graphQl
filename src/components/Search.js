@@ -3,8 +3,6 @@ import { useLazyQuery, gql } from "@apollo/client";
 import Link from "./Link";
 
 const Search = () => {
-  const [searchFilter, setSearchFilter] = useState("");
-  const [executeSearch, { data }] = useLazyQuery(FEED_SEARCH_QUERY);
   const FEED_SEARCH_QUERY = gql`
     query FeedSearchQuery($filter: String!) {
       feed(filter: $filter) {
@@ -28,6 +26,8 @@ const Search = () => {
       }
     }
   `;
+  const [searchFilter, setSearchFilter] = useState("");
+  const [executeSearch, { data }] = useLazyQuery(FEED_SEARCH_QUERY);
   return (
     <>
       <div>
